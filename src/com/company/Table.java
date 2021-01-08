@@ -9,7 +9,11 @@ public class Table {
     // Attribut de table
     public Player[] players;
 
-    // Fonction pour Initialisé la grille
+    /**
+     * Fonction pour Initialiser la grille
+     * @param nbPlayer nombres de joueurs
+     * @param namePlayer noms des joueurs
+     */
     public Table(int nbPlayer, String[] namePlayer) {
         grille = new Case[nbLig][nbCol];
         players = new Player[nbPlayer];
@@ -41,24 +45,12 @@ public class Table {
             grille[l][c].available = false;
             grille[l][c].color = this.players[i].color;
         }
-        /**
-         * Position de la personne
-         *
-         * Nombre de participant
-         * Initial
-         *
-         * Players[0]
-         * Players = [
-         * [6, 5]
-         * [6, 6]
-         * [6, 7]
-         * [6, 4]
-         * ]
-         */
 
     }
 
-
+    /**
+     * Affiche la grille
+     */
     public  void displayGrid() {
         ColorConsole.println("\n    A  B  C  D  E  F  G  H  I  J  K", Color.CYAN);
 

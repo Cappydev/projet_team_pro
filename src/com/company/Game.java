@@ -8,8 +8,13 @@ public class Game {
     private static Table table;
 
     /**
-     * nombre de round et affichage du game over et du score
+     * Demande ou le joueur veut se déplacer
+     * @param players le nom des joueurs
+     * @param direction true
+     * @param colorText Importe la couleur du texte
+     * @return le choix de direction du joueur en int
      */
+
 
     public static int askMove (String players, boolean direction, Color colorText){
         if(direction) {
@@ -40,22 +45,13 @@ public class Game {
         }
     }
 
-    /*
-    *
-    * grid = [
-    [Case, Case,Case,Case,Case,Case,Case, Case, Case, Case, Case,],
-    [Case, Case,Case,Case,Case,Case,Case, Case, Case, Case, Case,],
-    [Case, Case,Case,Case,Case,Case,Case, Case, Case, Case, Case,],
-    [Case, Case,Case,Case,Case,Case,Case, Case, Case, Case, Case,],
-    [Case, Case,Case,Case,Case,Case,Case, Case, Case, Case, Case,],
-    [Case, Case,Case,Case,Case,Case,Case, Case, Case, Case, Case,],
-    [Case, Case,Case,Case,Case,Case,Case, Case, Case, Case, Case,],
-    [Case, Case,Case,Case,Case,Case,Case, Case, Case, Case, Case,],
-    [Case, Case,Case,Case,Case,Case,Case, Case, Case, Case, Case,],
-    [Case, Case,Case,Case,Case,Case,Case, Case, Case, Case, Case,],
-    *
-    *
-    * */
+
+    /**
+     * fait Bouger le joueur
+     * @param idPlayers l'id de joueur
+     * @param askMoveDirection Recherche si le joueur veut se déplacer
+     */
+
     public static void move(int idPlayers, Boolean askMoveDirection) {
         Player player = table.players[idPlayers];
         int choice = Game.askMove(player.pseudo, askMoveDirection, player.color); // On demande ou veux allez l'utilisateurs
@@ -91,8 +87,11 @@ public class Game {
 
     }
 
-    
 
+    /**
+     * Demande la case à détruire
+     * @return le choix du joueur
+     */
 
     public static int[] askDestroy() {
 
@@ -137,6 +136,9 @@ public class Game {
 
     }
 
+    /**
+     * on détruit la case
+     */
     public static void destroy() {
         int[] destroyCase = askDestroy(); // Cette function retourne un tableau exemple : [3, 4]
 
@@ -153,6 +155,13 @@ public class Game {
 
     }
 
+    /**
+     * Relance la grilles
+     * @param turn Spécifie le tour de quel joueur
+     * @param nbplayer nombre de joueur dans la partie
+     * @param score stock le scores dans la hashMap
+     * @return la fin de jeux
+     */
     public static boolean replay(int turn,int nbplayer, HashMap<String, Integer> score){
 
         ArrayList<Player> playerIG = new ArrayList<>();
@@ -183,12 +192,29 @@ public class Game {
         }
     }
 
+    /**
+     * Commence la partie
+     * @param nbPlayer nombre de joueur
+     * @param playerName les nom des joueurs
+     * @param score stock le scores dans la hashMap
+     * @return la fonction replay
+     */
+
     public static boolean play(int nbPlayer, String[] playerName, HashMap<String, Integer> score) {
             table = new Table(nbPlayer, playerName);
             table.displayGrid(); // On affiche la grille
             int random = (int) (Math.random() * (nbPlayer));
             return replay(random,nbPlayer, score);
     }
+
+    /**
+     * Verifie la fin de jeu
+     * @param player objet player
+     * @param playerLoose Si il reste des joueurs
+     * @param score stock le scores dans la hashMap
+     * @return la fin de jeu
+     */
+
     public static boolean endgame(Player player, ArrayList<Player> playerLoose, HashMap<String, Integer > score ) {
         if (score.containsKey(player.pseudo)) {
             int count = score.get(player.pseudo);

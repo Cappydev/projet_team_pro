@@ -6,6 +6,11 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Files {
+
+    /**
+     *Crée un ficher "savescore.txt" ou l'on stocke la sauvegarde
+     * @param score stock le scores dans la hashMap
+     */
     public static void create(HashMap<String, Integer > score) {
         try {
             File myObj = new File("src/savescore.txt");
@@ -23,7 +28,10 @@ public class Files {
             e.printStackTrace();
         }
     }
-
+    /**
+     *Lit le fichier "SaveScore.txt"
+     * @param score stock le scores dans la hashMap
+     */
     public static void read(HashMap<String, Integer > score) {
         try {
             File myObj = new File("src/savescore.txt");

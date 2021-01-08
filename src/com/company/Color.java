@@ -1,5 +1,8 @@
 package com.company;
 
+/**
+ *On stock les couleur
+ */
 public enum Color {
 
     RESET("\u001B[0m"),

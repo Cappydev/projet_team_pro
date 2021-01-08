@@ -8,6 +8,12 @@ public class Main {
         launchApp();
     }
 
+    /**
+     * Function launchApp :
+     * - On affiche l'interface de jeux
+     * - On choisis les noms des joueurs
+     * - On lance la partie avec le nombre de joueurs donné
+     */
     public static void launchApp() {
         HashMap<String, Integer> score = new HashMap<String, Integer>();
         Files.read(score);
@@ -18,18 +24,3 @@ public class Main {
     }
 
 }
-
-
-/*
-* Story 1 :
-* Story 2 :
-* Story 3 :
-* Story 4 :
-* Story 5 :
-* Story 6 :
-* Story 7 :
-* Story 8 :
-* Story 9 :
-* Story 10 :
-*
-* */

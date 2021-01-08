@@ -1,6 +1,9 @@
 package com.company;
 
 
+/**
+ * Information du joueurs
+ */
 
 public class Player {
     int cordx;
@@ -10,6 +13,13 @@ public class Player {
     boolean defeat = false;
     String pseudo;
 
+    /**
+     * Construsteur
+     * @param cordx
+     * @param cordy
+     * @param nbPlayer
+     * @param pseudo
+     */
     public Player(int cordx, int cordy, String nbPlayer, String pseudo) {
         this.cordx = cordx;
         this.cordy = cordy;
@@ -25,6 +35,11 @@ public class Player {
         }
     }
 
+    /**
+     * Vérifie si le joueur peut se déplacer
+     * @param grille grille de jeux
+     * @return la défaite ou pas
+     */
     public boolean isDefeat(Case[][] grille){
         if (!this.defeat){
             boolean result = true;

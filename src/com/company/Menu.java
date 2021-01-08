@@ -39,7 +39,10 @@ public class Menu {
 
     }
 
-    public static void rulesOfTheGame() { // Affichage dans la console des règles
+    /**
+     * Affiche les règles du jeux
+     */
+    public static void rulesOfTheGame() {
         System.out.println(("Bonjour et Bienvenue dans Casse La Tete ! Voici les règles du jeu : \n\n") +
                 "Au début de la partie, votre pion sera placé à côté de celui de votre adversaire, le but est simple, gagner la partie en bloquant au maximum votre ennemi.\n" +
                 "Vous jouerez tour à tour et vous disposerez de 15 secondes pour jouer le vôtre.\n" +
@@ -73,6 +76,12 @@ public class Menu {
         }
     }
 
+    /**
+     * On affiche la matrice, le score ou les règles suivant la saisie de l'utilisateur
+     * @param score
+     * @return  les différents menu et le menu si mauvaise saisie
+     */
+
     public static int displayInterface(HashMap<String, Integer> score) {
         int number;
         number = Menu.choiceStart(); //Nouvelle partie, règles, quitter
@@ -92,6 +101,10 @@ public class Menu {
         return 0;
     }
 
+    /**
+     * Affiche le score
+     * @param score
+     */
     public static void displayScore(HashMap<String, Integer> score) {
         if (score.isEmpty()) {
             System.out.println("Aucun sauvegarde n'existe");
@@ -122,6 +135,9 @@ public class Menu {
         return pseudo;
     }
 
+    /**
+     *Renvoie au menu , après consutation des règles
+     * */
     public static void returnRules() {
 
         Scanner scanner = new Scanner(System.in);
